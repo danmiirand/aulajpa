@@ -22,15 +22,15 @@ public class Program {
 
 		em.getTransaction().begin();
 
-		DateFormat df = new SimpleDateFormat("dd-mm-yyyy");
-		Modelo a1 = new Modelo(null, "Dory", "Masculino", df.parse("31-03-1976"));
-		Modelo a2 = new Modelo(null, "Caroline", "Feminino", df.parse("24-04-1978"));
-		Modelo a3 = new Modelo(null, "Isabelle", "Feminino", df.parse("21-10-2010"));
-		Modelo a4 = new Modelo(null, "Ana Laura", "Feminino", df.parse("15-12-2000"));
+		
+		Modelo a1 = new Modelo(null, "Gol", "G5", "Volks");
+		Modelo a2 = new Modelo(null, "Corsa", "Feminino", "GM");
+		Modelo a3 = new Modelo(null, "Classic", "Feminino", "GM");
+		Modelo a4 = new Modelo(null, "New Fiesta", "Feminino", "Ford");
 
-		Modelo c1 = new Modelo(null, "Programação Orientada a Objeto I");
-		Modelo c2 = new Modelo(null, "Banco de dados I");
-		Modelo c3 = new Modelo(null, "Esrutura de dados I");
+		Modelo c1 = new Modelo(null, "Gol");
+		Modelo c2 = new Modelo(null, "G5");
+		Modelo c3 = new Modelo(null, "Volks");
 		
 		c1.addModelo(a1);
 		c1.addModelo(a2);
@@ -70,8 +70,8 @@ public class Program {
 		
 		Modelo c = em.find(Modelo.class, 2);
 		System.out.println("\n*** Curso: " + c.getModelo_id() 
-						   + " | " + c.getMarca_id() + " ***");
-		for (Aluno a : c.getAnoModelo())
+						   + " | " + c.getModelo_id() + " ***");
+		for(Modelo a : c.getAnoModelo())
 			System.out.println("Nome: " + a.getNome());
 		
 		em.close();
